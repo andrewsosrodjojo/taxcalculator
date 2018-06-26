@@ -1,0 +1,109 @@
+<div class="kotak_1_kiri">
+    <h2 class="Headline_101">Personal</h2>
+    <a class="tulisan_101">Status NPWP</a>
+    <br />
+    <a class="tulisan_101">Status Kawin</a>
+    <br />
+    <a class="tulisan_101">Tanggungan</a>
+    <br />
+    <a class="tulisan_101">Masa Penghasilan</a>
+    <br />
+    <a class="tulisan_101">Status Masuk</a>
+    <h2 class="Headline_101">Konfigurasi</h2>
+    <a class="tulisan_101">Tunjangan Pajak</a>
+    <br />
+    <a class="tulisan_101">Ketentuan PTKP</a>
+  </div>
+  <div class="kotak_2_tengah">
+    <h2 class="Headline_101">A. Penghasilan</h2>
+    <ol>
+      <li class="tulisan_101"> Gaji/Pensiun atau THT/JHT</li>
+      <li class="tulisan_101">Tunjangan PPh</li>
+      <li class="tulisan_101">Tunjangan Lainnya, Uang Lembur, dan sebagainya</li>
+      <li class="tulisan_101">Honorarium dan Imbalan Lainnya Sejenisnya</li>
+      <li class="tulisan_101">Premi Asuransi yang dibayar Pemberi Kerja</li>
+      <li class="tulisan_101">Natura dan Kenikmatan Lainnya</li>
+      <li class="tulisan_101"> Tantiem, Bonus, Gratifikasi, Jasa Produksi dan THR</li>
+      <li class="tulisan_101"> Penghasilan Bruto</li>
+    </ol>
+    <h2 class="Headline_101">B. Pengurang</h2>
+    <ol start="9">
+      <li class="tulisan_101"> Biaya Jabatan</li>
+      <li class="tulisan_101">Iuran Pensiun atau Iuran THT/JHT</li>
+    </ol>
+  </div>
+  <div class="kotak_3_kanan">
+  
+    <h2 class="Headline_101">C. Penghitungan PPh Pasal 21</h2>
+    <ol start="11">
+      <li class="tulisan_101">Penghasilan Bruto Setahun</li>
+      <li class="tulisan_101">Biaya Jabatan Setahun</li>
+      <li class="tulisan_101">Iuran Pensiun Setahun</li>
+      <li class="tulisan_101">Jumlah Pengurang Setahun</li>
+      <li class="tulisan_101">Penghasilan Neto</li>
+      <li class="tulisan_101">Penghasilan Neto Masa Sebelumnya</li>
+      <li class="tulisan_101"> Penghasilan Neto Setahun/Disetahunkan</li>
+      <li class="tulisan_101">Penghasilan Tidak Kena Pajak</li>
+      <li class="tulisan_101">PKP Setahun/Disetahunkan</li>
+      <li class="tulisan_101">PPh Pasal 21 atas PKP</li>
+      <li class="tulisan_101">PPh Pasal 21 Dipotong Masa Sebelumnya</li>
+      <li class="tulisan_101">Ph Pasal 21 Terutang Setahun/Disetahunkan</li>
+      <li class="tulisan_101">PPh Pasal 21 Terutang bulan ini
+        <ul>
+          <li class="tulisan_101">PKP atas Penghasilan Teratur Setahun</li>
+          <li class="tulisan_101">PPh Pasal 21 atas Penghasilan Teratur Setahun</li>
+          <li class="tulisan_101">PPh Pasal 21 atas Penghasilan Tidak Teratur</li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+
+
+<div class="dx-fieldset">
+  Status NPWP
+
+  <div class="option">
+      <dx-select-box
+          [items]="['page', 'allPages']"
+          [(value)]="selectAllModeVlaue">
+      </dx-select-box>
+  </div>
+
+<div class="dx-field">
+    <div class="dx-field-label">Success</div>
+    <div class="dx-field-value">
+        <dx-button width="80" [text]="okButtonOptions.text" [type]="okButtonOptions.type" (onClick)="okButtonOptions.onClick()"></dx-button>
+    </div>
+</div>
+
+<div class="dx-field">
+  <div class="dx-field-label">Default mode</div>
+  <div class="dx-field-value">
+      <dx-radio-group
+          [items]="priorities"
+          [value]="priorities[0]">
+      </dx-radio-group>
+  </div>
+</div>
+<div class="dx-field">
+  <div class="dx-field-label">Default mode</div>
+  <div class="dx-field-value">
+      <dx-text-box value="John Smith"></dx-text-box>
+  </div>
+</div>
+<div class="widget-container">
+    <dx-calendar #calendar
+        id="calendar-container" 
+        [min]="minDateValue"
+        [max]="maxDateValue"
+        [disabledDates]="disabledDates"
+        [firstDayOfWeek]="firstDay"
+        [disabled]="false"
+        [(value)]="currentValue"
+        [zoomLevel]="zoomLevels[0]"
+        [cellTemplate]="cellTemplate">
+            <span *dxTemplate="let cell of 'custom'" [ngClass]="getCellCssClass(cell.date)">
+                {{cell.text}}
+            </span>
+    </dx-calendar>
+</div>
